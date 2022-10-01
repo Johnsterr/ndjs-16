@@ -1,0 +1,22 @@
+{
+  "name": "002-console",
+  "version": "1.0.0",
+  "description": "",
+  "bin": {
+    "date-util": "./src/date/index.js",
+    "quiz": "./src/quiz/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Evgeniy Pashko",
+  "license": "ISC",
+  "dependencies": {
+    "date-fns": "^2.29.3",
+    "yargs": "^17.5.1"
+  },
+  "devDependencies": {
+    "@types/yargs": "^17.0.13"
+  }
+}
