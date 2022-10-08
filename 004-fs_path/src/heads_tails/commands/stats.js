@@ -97,7 +97,7 @@ module.exports.stats = {
     const logFileIsExist = await checkLogFileExist(fileNameWithExtention);
 
     if (!logFileIsExist) {
-      process.stdout.write(`File with name ${argv.name} does\'t exist`);
+      process.stdout.write(`File with name ${argv.name} does\'t exist\n`);
       process.exit(1);
       return;
     }
