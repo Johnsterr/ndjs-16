@@ -1,6 +1,6 @@
 const fs = require("fs");
 const readline = require("readline");
-const {LOGS_DEFAULT_EXTENSION, LOGS_DIR_PATH} = require("..constants.js");
+const {LOGS_DEFAULT_EXTENSION, LOGS_DIR_PATH} = require("../constants.js");
 
 const readlineInterface = readline.createInterface({
   input: process.stdin,

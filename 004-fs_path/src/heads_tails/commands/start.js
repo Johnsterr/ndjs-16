@@ -1,3 +1,5 @@
+const path = require("path");
+const fs = require("fs");
 const {
   EVENT_WIN,
   EVENT_LOSE,
@@ -11,7 +13,11 @@ const {
 } = require("../constants.js");
 
 const {HeadsAndTails} = require("../heads_tails_game.js");
-const {readlineInterface} = require("../utils");
+const {
+  readlineInterface,
+  createLogFilenameWithExtension,
+  checkLogFileExist,
+} = require("../utils");
 
 const createLogRecord = ({
   inputtedValue,
@@ -99,11 +105,11 @@ module.exports.start = {
     const HEADS_AND_TAILS = new HeadsAndTails();
     process.stdout.write(HEADS_AND_TAILS.greetingMessage);
 
-    HEADS_AND_TAILS.on(EVENT_WIN, createWinEventHandler(fileName));
+    HEADS_AND_TAILS.on(EVENT_WIN, createWinEventHandler(argv.name));
 
-    HEADS_AND_TAILS.on(EVENT_LOSE, createLostEventHandler(fileName));
+    HEADS_AND_TAILS.on(EVENT_LOSE, createLostEventHandler(argv.name));
 
-    HEADS_AND_TAILS.on(EVENT_ERROR, createErrorEventHandler(fileName));
+    HEADS_AND_TAILS.on(EVENT_ERROR, createErrorEventHandler(argv.name));
 
     readlineInterface.on("line", (inputedValue) => {
       if (HEADS_AND_TAILS.gameIsStopped) {
